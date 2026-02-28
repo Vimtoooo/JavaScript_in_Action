@@ -146,4 +146,4 @@ function openTab(tabId) {
 
 ##### Result:
 
-![Tabs](Assets/Videos/chrome_Tcj9kKE6sP.gif)
+![Tabs](Assets/Videos/chrome_N4KYzkwjSD.gif)
