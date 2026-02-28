@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Tabs Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="tabs">
+        <!-- Each button calls the function and passes the tab's ID -->
+        <button class="tab" onclick="openTab('home')">Home</button>
+        <button class="tab" onclick="openTab('about')">About</button>
+        <button class="tab" onclick="openTab('contact')">Contact</button>
+    </div>
+
+    <!-- By default, only "Home" is visible -->
+    <div id="home" class="tab-content">Welcome to the homepage!</div>
+    <div id="about" class="tab-content">Learn more about us here.</div>
+    <div id="contact" class="tab-content">Get in touch with us.</div>
+</body>
+</html>
