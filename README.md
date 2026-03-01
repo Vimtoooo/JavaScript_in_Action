@@ -147,3 +147,134 @@ function openTab(tabId) {
 ##### Result:
 
 ![Tabs](Assets/Videos/chrome_N4KYzkwjSD.gif)
+
+### Accordion (expand/collapse):
+
+An **accordion** is a UI component that lets you expand and collapse sections of content. It's often used for FAQs (click a question → show the answer, click again → hide it).
+The idea is simple: When you click a header, JavaScript toggles the visibility of the content below.
+
+#### Key Point:
+
+1. We have a **button** and a **content element** that is hidden by default (`display: none`).
+2. Clicking the button **triggers the function** and passes the ID of the element that should open.
+3. Inside the function:
+    - If the element is already showing (`display: block`), we **hide it** (`display: none`).
+    - Else, **we show it** (`display: block`).
+
+#### Basic Syntax:
+
+```html
+<button onclick="toggle('p1')">Question 1</button>
+<div id="p1" style="display:none;">Answer 1</div>
+
+<script>
+  function toggle(id) {
+    const element = document.getElementById(id); // Obtain the element by ID
+    if (element.style.display === "block") { // If the display is set to "block", define it to "none"
+      element.style.display = "none";
+    } else { // Otherwise, we set it to "block"
+      element.style.display = "block";
+    }
+  }
+</script>
+```
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ Accordion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>FAQ Coffee Lovers</h1>
+
+  <button class="accordion" onclick="togglePanel('q1')">What is the best way to brew coffee at home?</button>
+  <div id="q1" class="panel">
+    The French press and pour-over methods are popular for making rich, flavorful coffee at home.
+  </div>
+
+  <button class="accordion" onclick="togglePanel('q2')">Where do coffee beans come from?</button>
+  <div id="q2" class="panel">
+    Most coffee beans are grown in countries around the equator, such as Brazil, Ethiopia, and Colombia.
+  </div>
+
+  <button class="accordion" onclick="togglePanel('q3')">How late can I drink coffee?</button>
+  <div id="q3" class="panel">
+    It's best to avoid coffee 6 hours before bedtime, since caffeine can affect your sleep.
+  </div>
+
+  <button class="accordion" onclick="togglePanel('q4')">Should I add milk or drink it black?</button>
+  <div id="q4" class="panel">
+    It depends on your taste! Black coffee has stronger flavor, while milk softens the bitterness.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 40px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.accordion {
+  background: #90caf9;
+  color: #fff;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.accordion:hover {
+  background: #64b5f6;
+}
+
+.panel {
+  padding: 15px;
+  border: 1px solid #90caf9;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  display: none; /* hidden by default */
+}
+```
+
+##### JavaScript:
+
+```js
+function togglePanel(tabId) {
+  const elem = document.getElementById(tabId);
+  if (elem.style.display === "block") elem.style.display = "none";
+  else elem.style.display = "block";
+}
+```
+
+##### Result:
+
+![Accordion (expand/collapse)](Assets/Videos/chrome_uojIS2YIiN.gif)

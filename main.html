@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simple Tabs Example</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ Accordion</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tabs">
-        <!-- Each button calls the function and passes the tab's ID -->
-        <button class="tab" onclick="openTab('home')">Home</button>
-        <button class="tab" onclick="openTab('about')">About</button>
-        <button class="tab" onclick="openTab('contact')">Contact</button>
-    </div>
 
-    <!-- By default, only "Home" is visible -->
-    <div id="home" class="tab-content">Welcome to the homepage!</div>
-    <div id="about" class="tab-content">Learn more about us here.</div>
-    <div id="contact" class="tab-content">Get in touch with us.</div>
+  <h1>FAQ Coffee Lovers</h1>
+
+  <button class="accordion" onclick="togglePanel('q1')">What is the best way to brew coffee at home?</button>
+  <div id="q1" class="panel">
+    The French press and pour-over methods are popular for making rich, flavorful coffee at home.
+  </div>
+
+  <button class="accordion" onclick="togglePanel('q2')">Where do coffee beans come from?</button>
+  <div id="q2" class="panel">
+    Most coffee beans are grown in countries around the equator, such as Brazil, Ethiopia, and Colombia.
+  </div>
+
+  <button class="accordion" onclick="togglePanel('q3')">How late can I drink coffee?</button>
+  <div id="q3" class="panel">
+    It's best to avoid coffee 6 hours before bedtime, since caffeine can affect your sleep.
+  </div>
+
+  <button class="accordion" onclick="togglePanel('q4')">Should I add milk or drink it black?</button>
+  <div id="q4" class="panel">
+    It depends on your taste! Black coffee has stronger flavor, while milk softens the bitterness.
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 40px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.accordion {
+  background: #90caf9;
+  color: #fff;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.accordion:hover {
+  background: #64b5f6;
+}
+
+.panel {
+  padding: 15px;
+  border: 1px solid #90caf9;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  display: none; /* hidden by default */
+}
