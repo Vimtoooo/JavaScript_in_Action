@@ -1,5 +1,11 @@
-function togglePanel(tabId) {
-  const elem = document.getElementById(tabId);
-  if (elem.style.display === "block") elem.style.display = "none";
-  else elem.style.display = "block";
+function openModal(modalId) {
+  // Show the overlay
+  document.getElementById("overlay").style.display = "block";
+  
+  // Show the modal
+  document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("overlay").style.display = "none";
 }

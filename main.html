@@ -3,32 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ Accordion</title>
+  <title>Space Facts – Modal Example</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>FAQ Coffee Lovers</h1>
+  <h1>Space Facts</h1>
+  <p>Click the button below to learn something cool about space.</p>
 
-  <button class="accordion" onclick="togglePanel('q1')">What is the best way to brew coffee at home?</button>
-  <div id="q1" class="panel">
-    The French press and pour-over methods are popular for making rich, flavorful coffee at home.
+  <!-- Buttons that open modals -->
+  <button onclick="openModal('fact')">Fact 1</button>
+
+  <!-- Overlay + Modal Content -->
+  <div id="overlay" class="overlay" onclick="closeModal()">
+    <div id="fact" class="modal">
+      <span class="close-btn" onclick="closeModal()">×</span>
+      <h2>Shooting Stars</h2>
+      <p>Shooting stars are actually tiny meteors burning up as they enter Earth’s atmosphere.</p>
+    </div>
   </div>
 
-  <button class="accordion" onclick="togglePanel('q2')">Where do coffee beans come from?</button>
-  <div id="q2" class="panel">
-    Most coffee beans are grown in countries around the equator, such as Brazil, Ethiopia, and Colombia.
-  </div>
-
-  <button class="accordion" onclick="togglePanel('q3')">How late can I drink coffee?</button>
-  <div id="q3" class="panel">
-    It's best to avoid coffee 6 hours before bedtime, since caffeine can affect your sleep.
-  </div>
-
-  <button class="accordion" onclick="togglePanel('q4')">Should I add milk or drink it black?</button>
-  <div id="q4" class="panel">
-    It depends on your taste! Black coffee has stronger flavor, while milk softens the bitterness.
-  </div>
   <script src="script.js"></script>
 </body>
 </html>

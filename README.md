@@ -278,3 +278,156 @@ function togglePanel(tabId) {
 ##### Result:
 
 ![Accordion (expand/collapse)](Assets/Videos/chrome_uojIS2YIiN.gif)
+
+### Modal (open/close):
+
+A **modal** is a small window that appears "on top" of the page to <i>grab the user's attention</i>. It's often used ofter login forms, notifications, or confirmations.
+
+#### Key Points:
+
+1. The modal is **hidden by default (`display: none`).
+2. Clicking the **"Open" button (x)** runs the `openModal()` function → sets `display: block`.
+3. Inside the modal, the **close button (x)** runs the `closeModal()` function → sets `display: none`.
+4. Often you can also make it close by clicking **outside the modal** (on the dark overlay).
+
+#### Basic Syntax:
+
+```html
+<!-- Button to open modal -->
+<button onclick="openModal()">Open Modal</button>
+
+<!-- Modal overlay + content -->
+<div id="overlay" style="display:none;">
+  <div class="modal">
+    <span onclick="closeModal()">×</span>
+    <p>This is a modal window.</p>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("overlay").style.display = "block";
+  }
+  function closeModal() {
+    document.getElementById("overlay").style.display = "none";
+  }
+</script>
+```
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Space Facts – Modal Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Space Facts</h1>
+  <p>Click the button below to learn something cool about space.</p>
+
+  <!-- Buttons that open modals -->
+  <button onclick="openModal('fact')">Fact 1</button>
+
+  <!-- Overlay + Modal Content -->
+  <div id="overlay" class="overlay" onclick="closeModal()">
+    <div id="fact" class="modal">
+      <span class="close-btn" onclick="closeModal()">×</span>
+      <h2>Shooting Stars</h2>
+      <p>Shooting stars are actually tiny meteors burning up as they enter Earth’s atmosphere.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+#### CSS:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  background: #0d1b2a;
+  color: #eee;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #90caf9;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #90caf9;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #64b5f6;
+}
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.modal {
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  margin: 100px auto;
+  width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: none; /* the modal hidden by default */
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  color: #888;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+```
+
+##### JavaScript:
+
+```js
+function openModal(modalId) {
+  // Show the overlay
+  document.getElementById("overlay").style.display = "block";
+  
+  // Show the modal
+  document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("overlay").style.display = "none";
+}
+```
+
+##### Result:
+
+![Modal (open/close)](Assets/Videos/chrome_Gkr71tYt8E.gif)
