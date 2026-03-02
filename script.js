@@ -1,11 +1,6 @@
-function openModal(modalId) {
-  // Show the overlay
-  document.getElementById("overlay").style.display = "block";
-  
-  // Show the modal
-  document.getElementById(modalId).style.display = "block";
-}
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
 
-function closeModal() {
-  document.getElementById("overlay").style.display = "none";
-}
+dropdownToggle.addEventListener('click', function() {
+  dropdownMenu.classList.toggle('show');
+});

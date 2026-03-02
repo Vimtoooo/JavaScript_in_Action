@@ -431,3 +431,174 @@ function closeModal() {
 ##### Result:
 
 ![Modal (open/close)](Assets/Videos/chrome_Gkr71tYt8E.gif)
+
+### Dropdown:
+
+The dropdown component is a common UI element that reveals additional content when clicked.
+
+#### Basic Syntax:
+
+Create the HTML structure for the dropdown:
+
+```html
+<div class="dropdown">
+  <button class="dropdown-toggle">Select an option</button>
+  <div class="dropdown-menu">
+    <a href="#">Option 1</a>
+    <a href="#">Option 2</a>
+    <a href="#">Option 3</a>
+  </div>
+</div>
+```
+
+Next, add some basic CSS to style the dropdown.
+
+```css
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  z-index: 1;
+}
+.show {
+  display: block;
+}
+```
+
+And finally, insert some JavaScript to toggle the dropdown menu:
+
+```js
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+dropdownToggle.addEventListener('click', function() {
+  dropdownMenu.classList.toggle('show');
+});
+```
+
+##### Breakdown:
+
+**1. Selecting the Elements:** The `const  dropdownToggle` finds the clickable element (likely a button or a link) with the class `.dropdown-toggle`. Then the other constant variable called `dropdownMenu` finds the actual list or container with the class `.dropdown-menu`, which you would want to reveal.
+
+**2. The Event Listener:** `addEventListener('click', ...)` will tell the browser to "listen" for a click on the toggle button, where every time a user clicks it, the code inside the `function()` would be executed!
+
+**3. The Toggle Logic:** The function inserted inside the `addEventListener()` function is responsible for the actions of the script. If the menu does not have the class `show`, it adds it, otherwise, it removes it.
+
+So when the button is clicked, the JavaScript **adds or removes the 'show' class**, which controls the visibility of the dropdown menu.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dropdown Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <h2>Welcome to the Dashboard</h2>
+  <p>Click the button below to open your profile menu:</p>
+
+  <div id="profileDropdown" class="dropdown">
+    <button class="dropdown-toggle">
+      My Profile
+    </button>
+    <div class="dropdown-menu">
+      <a href="#">View Profile</a>
+      <a href="#">Settings</a>
+      <a href="#">Logout</a>
+    </div>
+  </div>
+
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 40px;
+    }
+
+.dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+.dropdown-toggle {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+.dropdown-toggle:hover {
+      background-color: #45a049;
+    }
+
+.dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: -50%;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 180px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+.dropdown-menu a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s ease;
+    }
+
+.dropdown-menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+.dropdown-menu a.logout {
+      color: #d9534f;
+      font-weight: bold;
+    }
+
+.show {
+      display: block;
+    }
+```
+
+##### JavaScript:
+
+```js
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+dropdownToggle.addEventListener('click', function() {
+  dropdownMenu.classList.toggle('show');
+});
+```
+
+##### Result:
+
+![Dropdown](Assets/Videos/chrome_KwkUqFKWcy.gif)

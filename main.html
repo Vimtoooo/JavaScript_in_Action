@@ -3,26 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Space Facts – Modal Example</title>
+  <title>Dropdown Challenge</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <h1>Space Facts</h1>
-  <p>Click the button below to learn something cool about space.</p>
+  <h2>Welcome to the Dashboard</h2>
+  <p>Click the button below to open your profile menu:</p>
 
-  <!-- Buttons that open modals -->
-  <button onclick="openModal('fact')">Fact 1</button>
-
-  <!-- Overlay + Modal Content -->
-  <div id="overlay" class="overlay" onclick="closeModal()">
-    <div id="fact" class="modal">
-      <span class="close-btn" onclick="closeModal()">×</span>
-      <h2>Shooting Stars</h2>
-      <p>Shooting stars are actually tiny meteors burning up as they enter Earth’s atmosphere.</p>
+  <div id="profileDropdown" class="dropdown">
+    <button class="dropdown-toggle">
+      My Profile
+    </button>
+    <div class="dropdown-menu">
+      <a href="#">View Profile</a>
+      <a href="#">Settings</a>
+      <a href="#">Logout</a>
     </div>
   </div>
 
-  <script src="script.js"></script>
 </body>
 </html>
