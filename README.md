@@ -490,6 +490,9 @@ dropdownToggle.addEventListener('click', function() {
 
 So when the button is clicked, the JavaScript **adds or removes the 'show' class**, which controls the visibility of the dropdown menu.
 
+> [!NOTE]
+> The `querySelector('.dropdown-menu')` function will only store the first element reference with the name of '.dropdown-menu', and not store any other elements with the same class. And the `classList` allows us to easily manipulate with the **CSS classes** of an element without overwriting the entire `class` attribute. So the `toggle('show')` function acts like a "switch", checking if the class contains the value 'show', it will add it and the selector at the bottom of the CSS document will be applied, otherwise, it will remove the 'show' value, unapplying the property in the 'show' selector.
+
 #### Example of Usage:
 
 ##### HTML:
@@ -602,3 +605,123 @@ dropdownToggle.addEventListener('click', function() {
 ##### Result:
 
 ![Dropdown](Assets/Videos/chrome_KwkUqFKWcy.gif)
+
+## Forms & Validation:
+
+### Input Validation:
+
+When building forms, it's important to give users **immediate feedback** as they type, so they don't submit incorrect information. This is called **real-time validation**.
+
+#### Basic Syntax:
+
+Before we build this logic, we must create a basic text input field so that we can use it for validating and give feedback to the user in real-time!
+
+```html
+<input type="text" id="username" placeholder="Enter username">
+```
+
+Now, add an event listener to validate the input as the user types:
+
+```js
+const usernameInput = document.getElementById('username');
+const usernameError = document.getElementById('usernameError');
+
+usernameInput.addEventListener('input', function() {
+    // Get the current value
+    const value = this.value;
+    
+    // Check if it meets our criteria
+    if (value.length < 5) {
+        usernameInput.style.borderColor = "red";
+      } else {
+        usernameInput.style.borderColor = "green";
+      }
+});
+```
+
+If the validation does not meet the requirement, the input border turns **red**, only if the username is less the 5 characters long, otherwise, it'll turn **green** if it met the criteria (5 characters or more).
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="Enter your email">
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background-color: #f5f5f5;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"] {
+    padding: 10px 12px;
+    width: 300px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    display: inline-block;
+}
+```
+
+##### JavaScript:
+
+```js
+const emailInput = document.getElementById("email");
+
+emailInput.addEventListener("input", function () {
+    if (emailInput.value.includes("@")) {
+        // Add your code below
+        emailInput.style.border = "2px solid rgb(0, 250, 0)";
+    } else {
+        emailInput.style.border = "2px solid rgb(250, 0, 0)";
+    }
+});
+```
+
+##### Result:
+
+![Input Validation](Assets/Videos/chrome_FWzYUx7lc0.gif)
