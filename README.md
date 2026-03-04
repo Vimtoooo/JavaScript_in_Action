@@ -1054,3 +1054,177 @@ form.addEventListener('submit', function(event) {
 ##### Result:
 
 ![Submit Buttons](Assets/Videos/chrome_eCNSVRdGWr.gif)
+
+## Notifications & Feedback:
+
+### Toast Message:
+
+The **toast message** is a small notification that briefly appears on the screen to give feedback to the user. It usually fades out after a few seconds.
+
+#### Basic Syntax:
+
+HTML structure:
+
+```html
+<div class="container">
+    <button id="showToast">Show Toast</button>
+    <div id="toast" class="hidden">This is a toast message!</div>
+</div>
+```
+
+Then add some CSS to style the toast, where we will be using two classes: `.hidden` to keep it invisible, and `.show` to make it appear.
+
+```css
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    background-color: #333;
+    color: white;
+    padding: 15px 25px;
+}
+.show {
+    opacity: 1;
+}
+.hidden {
+    display: none;
+}
+```
+
+Now, add JavaScript to show and hide the toast:
+
+```js
+const showToastBtn = document.getElementById('showToast');
+const toast = document.getElementById('toast');
+
+showToastBtn.addEventListener('click', function() {
+    toast.classList.remove('hidden');
+    toast.classList.add('show');
+
+    setTimeout(function() {
+        toast.classList.remove('show');
+        toast.classList.add('hidden');
+    }, 3000);
+});
+```
+
+This script will make the toast visible when the button is clicked, and automatically hides it after 3 seconds!
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toast Notification Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>My Profile Settings</h1>
+  </header>
+
+  <main>
+    <p>Update your profile and save changes. A toast message will confirm your action.</p>
+    <button id="showToast">Save Changes</button>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden">✅Your changes have been saved!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+/* Page styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #dee5ee;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: #012494;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #187bcd;
+}
+
+/* Toast styling */
+.toast {
+  position: fixed;
+  bottom: 10rem;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(0, 185, 25);
+  color: rgb(56, 56, 56);
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+```
+
+##### JavaScript:
+
+```js
+const showToastBtn = document.getElementById('showToast');
+const toast = document.getElementById('toast');
+
+showToastBtn.addEventListener('click', function() {
+  // Show the toast
+  toast.classList.remove('hidden');
+  toast.classList.add('show');
+  
+  // Hide after 3 seconds
+  setTimeout(function() {
+    toast.classList.remove('show');
+    toast.classList.add('hidden');
+  }, 3000);
+});
+```
+
+##### Result:
+
+![Toast Message](Assets/Videos/chrome_KVluqVrtuG.gif)
