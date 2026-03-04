@@ -920,3 +920,137 @@ validateEmail('email', 'emailError');
 ##### Result:
 
 ![Custom Error Message](Assets/Videos/chrome_Qbm4voRML6.gif)
+
+### Submit Buttons:
+
+Submit buttons are essential elements in HTML forms that allow users to send form data to a server for processing.
+
+#### Basic Syntax:
+
+Create a basic HTML form with a submit button:
+
+```html
+<form id="myForm">
+  <input type="text" placeholder="Enter your name">
+  <button type="submit">Submit</button>
+</form>
+```
+
+The `type="submit"` attribute specifies that the button should submit the form when clicked!
+
+You can also use JavaScript to handle form submissions:
+
+```js
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevents the default form submission
+  console.log('Form submitted!'); // This prints a message in the console
+});
+```
+
+The `preventDefault()` method stops the form from submitting in the traditional way, allowing you to handle the submission with JavaScript.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit buttons</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="myForm">
+    <h2>Sign Up</h2>
+    <input type="text" id="email" placeholder="Enter your email">
+    <p id="emailMessage" class="message"></p>
+    <button type="submit">Submit</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+#myForm {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+h2 {
+      margin-bottom: 15px;
+      text-align: center;
+      color: #333;
+    }
+
+input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+input:focus {
+      outline: none;
+      border-color: #1e90ff;
+      box-shadow: 0 0 4px rgba(30, 144, 255, 0.4);
+    }
+
+.message {
+      color: green;
+      font-size: 18px;
+      margin: 0;
+    }
+
+button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      background: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+button:hover {
+      background: #187bcd;
+    }
+```
+
+##### JavaScript:
+
+```js
+const form = document.getElementById('myForm');
+const message = document.getElementById('emailMessage');
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevents the default form submission
+  message.textContent = "Submitted successfully";
+});
+```
+
+##### Result:
+
+![Submit Buttons](Assets/Videos/chrome_eCNSVRdGWr.gif)
