@@ -725,3 +725,198 @@ emailInput.addEventListener("input", function () {
 ##### Result:
 
 ![Input Validation](Assets/Videos/chrome_FWzYUx7lc0.gif)
+
+### Custom Error Message:
+
+Custom error messages help users understand what's wrong with their form input. Let's learn how to create and display them for form validation.
+
+#### Basic Syntax:
+
+First, create a basic input field and a span next to it, where we will display the message:
+
+```html
+<input type="text" id="username" placeholder="Enter username">
+<span id="usernameError" class="error"></span>
+```
+
+Now, let's add JavaScript to validate the input and show a custom error message:
+
+```js
+const usernameInput = document.getElementById('username');
+const usernameError = document.getElementById('usernameError');
+
+usernameInput.addEventListener('input', function() {
+    if (this.value.length < 5) {
+        usernameError.textContent = "Username must be at least 5 characters long";
+        usernameError.style.color = "red";
+    } else {
+        usernameError.textContent = "";
+    }
+});
+```
+
+So when a user types in the input field, the event listener checks if the username is at least 5 characters long, if not, it'll display a red error message.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom error messages</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Create Your Account</h2>
+    <p class="subtitle">Join our newsletter for the latest updates</p>
+
+    <form>
+      <label for="email">Email Address</label>
+      <input type="text" id="email" placeholder="e.g. user@example.com">
+      <span id="emailError" class="message"></span>
+
+      <button type="button">Subscribe</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+/* General styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e90ff, #00b894);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Card-like form */
+.form-container {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  width: 320px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #2d3436;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #636e72;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2d3436;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 6px rgba(30, 144, 255, 0.5);
+  outline: none;
+}
+
+/* Validation messages */
+.message {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.error {
+  color: #e63946;
+}
+
+.success {
+  color: #2a9d8f;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  background: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #187bcd;
+}
+```
+
+##### JavaScript:
+
+```js
+function validateEmail(inputId, errorId) {
+  const inputElement = document.getElementById(inputId);
+  const errorElement = document.getElementById(errorId);
+
+  inputElement.addEventListener('input', function() {
+    const emailValue = this.value;
+    let hasAtSign = false;
+
+    for (const char of emailValue) {
+      if (char === "@") {
+        hasAtSign = true;
+        break;
+      };
+    };
+
+    if (!hasAtSign) {
+      errorElement.textContent = "Please enter a valid email address"
+      errorElement.style.color = "red";
+
+    } else {
+      errorElement.textContent = "Looks good!";
+      errorElement.style.color = "green";
+      
+    };
+
+  });
+};
+
+// Initialize validation
+validateEmail('email', 'emailError');
+```
+
+##### Result:
+
+![Custom Error Message](Assets/Videos/chrome_Qbm4voRML6.gif)
