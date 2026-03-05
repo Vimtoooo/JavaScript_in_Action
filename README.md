@@ -1431,3 +1431,177 @@ closeBtn.addEventListener('click', function() {
 ##### Result:
 
 ![Dismissible Banners](Assets/Videos/d0DZekmJh8.gif)
+
+### Loading Indicators:
+
+Loading indicators are small visual elements (like spinners or animations) that <i>let users know something is happening in the background (when submitting a form or loading data)</i>. They improve user experience by showing feedback instead of leaving the user guessing!
+
+#### Basic Syntax:
+
+Add HTML to your page as usual:
+
+```html
+<div id="loading-spinner" class="spinner-hidden">
+  <div class="spinner"></div>
+</div>
+```
+
+Apply CSS style to the element so it looks like a wheel, and use `@keyframes` to keep spinning it endlessly, while having the option to alter the spin with precision. We also use a `.hidden` class to keep the spinner invisible when needed.
+
+```css
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+```
+
+And we add JavaScript to show/hide the spinner:
+
+```js
+const loadBtn = document.getElementById("loadBtn");
+const spinner = document.getElementById("spinner");
+
+loadBtn.addEventListener("click", function () {
+  // Show spinner
+  spinner.classList.remove("hidden");
+
+  // After 3 seconds, hide spinner and show alert
+  setTimeout(function () {
+    spinner.classList.add("hidden");
+    alert("Data loaded successfully!");
+  }, 3000);
+});
+```
+
+##### Visual Demonstration:
+
+This is how it'll look like:
+
+![Loading Indicators illustration](Assets/Videos/chrome_7hIcKzRqsW.gif)
+
+When the button is clicked, we show the spinner, wait 3 seconds, then hide it and display an alert. But for this demonstration, we only showed the button... View down bellow the example.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading Spinner Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to My Page</h1>
+    <p>Click the button below to simulate loading data.</p>
+    <button id="loadBtn">Load Data</button>
+    <div id="spinner" class="spinner hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 320px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #1e90ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #187bcd;
+}
+
+/* Spinner styling */
+.spinner {
+  margin: 20px auto 0;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #1e90ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+```
+
+##### JavaScript:
+
+```js
+const loadBtn = document.getElementById("loadBtn");
+const spinner = document.getElementById("spinner");
+
+loadBtn.addEventListener("click", function () {
+  // Show spinner
+  spinner.classList.remove("hidden");
+  // After 3 seconds, hide spinner
+  setTimeout(function () {
+    spinner.classList.add("hidden");
+  }, 3000);
+});
+```
+
+##### Result:
+
+![Loading Indicators](Assets/Videos/chrome_5aioQvCzme.gif)
