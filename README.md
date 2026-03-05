@@ -1228,3 +1228,206 @@ showToastBtn.addEventListener('click', function() {
 ##### Result:
 
 ![Toast Message](Assets/Videos/chrome_KVluqVrtuG.gif)
+
+### Dismissible Banners:
+
+A **dismissible banner** is a notification or message bar that appears at the top (or bottom) of the page and can be closed by the user. These are often used to sho important information, like cookie policies, announcements, or warnings. The key feature is the **close (x) button** that lets the user hide the banner without refreshing the page!
+
+#### Basic Syntax:
+
+Add the HTML structure:
+
+```html
+<div class="banner" id="banner">
+  <p>This is an important announcement!</p>
+  <button id="closeBanner">X</button>
+</div>
+```
+
+Add some basic CSS styles to our banner:
+
+```css
+.banner {
+  background-color: #1e90ff;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  position: relative;
+
+}
+
+.banner button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+
+  cursor: pointer;
+}
+```
+
+And finally, add JavaScript to make the banner dismissible:
+
+```js
+const banner = document.getElementById('banner');
+const closeBtn = document.getElementById('closeBanner');
+
+closeBtn.addEventListener('click', function() {
+  banner.style.display = 'none';
+});
+```
+
+##### Visual Demonstration:
+
+![Dismissible banners illustration](Assets/Videos/chrome_AHs3cUpPox.gif)
+
+When the close button (x) is clicked, the banner will disappear! (because it will be hidden).
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dismissible Banner Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Banner -->
+  <div class="banner" id="banner">
+    <p>Big News! Our new course is live. Enroll today and get 30% off!</p>
+    <button id="closeBanner">&times;</button>
+  </div>
+
+  <!-- Page Content -->
+  <header class="hero">
+    <h1>Welcome to CodeLearn</h1>
+    <p>Practical lessons to sharpen your web development skills 🚀</p>
+  </header>
+
+  <main class="content">
+    <section>
+      <h2>Learn by Doing</h2>
+      <p>Each lesson comes with tasks and challenges so you can practice immediately.</p>
+    </section>
+
+    <section>
+      <h2>Topics We Cover</h2>
+      <ul>
+        <li>HTML & CSS basics</li>
+        <li>JavaScript essentials</li>
+        <li>Frontend projects</li>
+        <li>Interactive UI components</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CodeLearn. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Banner */
+.banner {
+  background-color: #b5cbe0;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.banner button {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #4389ce, #0a033b);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Main Content */
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.content h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.content p, 
+.content ul {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.content ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #faf2f2;
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  margin-top: 40px;
+}
+```
+
+##### JavaScript:
+
+```js
+const banner = document.getElementById('banner');
+const closeBtn = document.getElementById('closeBanner');
+
+closeBtn.addEventListener('click', function() {
+  banner.style.display = 'none';
+});
+```
+
+##### Result:
+
+![Dismissible Banners](Assets/Videos/d0DZekmJh8.gif)

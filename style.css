@@ -1,88 +1,17 @@
-/* General styles */
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1e90ff, #00b894);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-/* Card-like form */
-.form-container {
-  background: #fff;
-  padding: 25px 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-  width: 320px;
-  text-align: center;
-}
-
-h2 {
-  margin-bottom: 10px;
-  color: #2d3436;
-}
-
-.subtitle {
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #636e72;
-}
-
-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #2d3436;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input:focus {
-  border-color: #1e90ff;
-  box-shadow: 0 0 6px rgba(30, 144, 255, 0.5);
-  outline: none;
-}
-
-/* Validation messages */
-.message {
-  font-size: 13px;
-  display: block;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.error {
-  color: #e63946;
-}
-
-.success {
-  color: #2a9d8f;
-}
-
-/* Button */
-button {
-  width: 100%;
-  padding: 10px;
-  font-size: 15px;
-  background: #1e90ff;
+.banner {
+  background-color: #1e90ff;
   color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+  padding: 15px 20px;
+  text-align: center;
+  position: relative;
+
 }
 
-button:hover {
-  background: #187bcd;
+.banner button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+
+  cursor: pointer;
 }
