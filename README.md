@@ -1605,3 +1605,4 @@ loadBtn.addEventListener("click", function () {
 ##### Result:
 
 ![Loading Indicators](Assets/Videos/chrome_5aioQvCzme.gif)
+
