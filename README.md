@@ -1606,3 +1606,258 @@ loadBtn.addEventListener("click", function () {
 
 ![Loading Indicators](Assets/Videos/chrome_5aioQvCzme.gif)
 
+## Navigation:
+
+### Mobile Burger Menu Toggle (☰):
+
+On small screens, websites often use a **burger (☰) icon** instead of showing the full navigation. WWhen the user clicks the burger icon, JavaScript toggles the visibility of the navigation menu.
+
+#### Basic Syntax:
+
+First, create the HTML structure for the burger menu icon. This will include a button with 3 spans (styles as lines in CSS to firm the burger icon) and a hidden `<nav>` section that contains the menu links.
+
+```html
+<button id="burger-btn" class="burger-menu">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+
+<nav id="mobile-nav" class="hidden">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+```
+
+No, let's add some basic CSS to style the burger menu:
+
+```css
+.burger-menu {
+  display: block;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Show the navigation when it doesn't have the hidden class */
+nav:not(.hidden) {
+  display: block;
+}
+```
+
+Lastly, insert JavaScript to toggle the menu:
+
+```js
+// Select the burger button and mobile navigation
+const burgerBtn = document.getElementById('burger-btn');
+const mobileNav = document.getElementById('mobile-nav');
+
+// Add click event listener to the burger button
+burgerBtn.addEventListener('click', function() {
+  // Toggle the hidden class on the mobile navigation
+  mobileNav.classList.toggle('hidden');
+});
+```
+
+##### Visual Demonstration:
+
+![Mobile burger menu toggle illustration](Assets/Videos/chrome_UfQREdozzb.gif)
+
+When you click the burger button, the hidden class is toggled on the navigation menu, making it appear or disappear.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Minimalism Lifestyle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Burger Button -->
+  <div id="myButton" class="burger-btn">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav id="myMenu" class="menu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Philosophy</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <header class="hero">
+    <h1>Minimalism</h1>
+    <p>Less but better. Enjoy the essentials, remove the noise.</p>
+    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt="Minimalist interior">
+  </header>
+
+  <section class="content">
+    <h2>The Essence of Minimalism</h2>
+    <p>
+      Minimalism is not about having less, but about making room for what truly matters. 
+      It is about quality over quantity, clarity over clutter, and creating spaces that breathe. 
+      Whether in design or lifestyle, minimalism helps us live with purpose and appreciation.
+    </p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+/* Reset */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+}
+
+/* Burger Button */
+.burger-btn {
+  cursor: pointer;
+  padding: 15px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+.burger-btn .line {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+/* Burger animation */
+.burger-btn.active .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger-btn.active .line:nth-child(2) {
+  opacity: 0;
+}
+.burger-btn.active .line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation menu */
+.menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 70px;
+}
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+.menu li {
+  margin: 20px 0;
+  text-align: center;
+}
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+.menu a:hover {
+  color: #888;
+}
+.menu.active {
+  display: block;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #666;
+}
+.hero img {
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Content section */
+.content {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+}
+.content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+.content p {
+  font-size: 1rem;
+  color: #555;
+}
+```
+
+##### JavaScript:
+
+```js
+function toggleMenu(buttonId, menuId) {
+  const button = document.getElementById(buttonId);
+  const menu = document.getElementById(menuId);
+
+  button.addEventListener("click", function () {
+    button.classList.toggle("active");
+    menu.classList.toggle("active");
+  });
+}
+
+// Call function
+toggleMenu("myButton", "myMenu");
+```
+
+##### Result:
+
+![Mobile Burger Menu Toggle](Assets/Videos/chrome_t0pYKEt1FC.gif)

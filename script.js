@@ -1,13 +1,12 @@
-const loadBtn = document.getElementById("loadBtn");
-const spinner = document.getElementById("spinner");
+function toggleMenu(buttonId, menuId) {
+  const button = document.getElementById(buttonId);
+  const menu = document.getElementById(menuId);
 
-loadBtn.addEventListener("click", function () {
-  // Show spinner
-  spinner.classList.remove("hidden");
+  button.addEventListener("click", function () {
+    button.classList.toggle("active");
+    menu.classList.toggle("active");
+  });
+}
 
-  // After 3 seconds, hide spinner and show alert
-  setTimeout(function () {
-    spinner.classList.add("hidden");
-    alert("Data loaded successfully!");
-  }, 3000);
-});
+// Call function
+toggleMenu("myButton", "myMenu");
