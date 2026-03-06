@@ -1,12 +1,6 @@
-function toggleMenu(buttonId, menuId) {
-  const button = document.getElementById(buttonId);
-  const menu = document.getElementById(menuId);
+const toggleBtn = document.getElementById('toggleNav');
+const sideNav = document.getElementById('sideNav');
 
-  button.addEventListener("click", function () {
-    button.classList.toggle("active");
-    menu.classList.toggle("active");
-  });
-}
-
-// Call function
-toggleMenu("myButton", "myMenu");
+toggleBtn.addEventListener('click', function() {
+  sideNav.classList.toggle('open');
+});

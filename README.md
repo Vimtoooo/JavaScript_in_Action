@@ -1861,3 +1861,218 @@ toggleMenu("myButton", "myMenu");
 ##### Result:
 
 ![Mobile Burger Menu Toggle](Assets/Videos/chrome_t0pYKEt1FC.gif)
+
+### Collapsible Side Navigation:
+
+A collapsible side navigation is a hidden menu on the side of the screen that slides in when a button is clicked. It helps save space while still giving users quick access to navigation links.
+
+#### Basic Syntax:
+
+Construct the HTML structure with a side navigation and toggle button:
+
+```html
+<button id="toggleNav">☰ Menu</button>
+
+<nav id="sideNav" class="sidenav">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</nav>
+```
+
+Style the side navigation with CSS:
+
+```css
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidenav.open {
+  width: 250px;
+}
+```
+
+Apply JavaScript to toggle the navigation:
+
+```js
+const toggleBtn = document.getElementById('toggleNav');
+const sideNav = document.getElementById('sideNav');
+
+toggleBtn.addEventListener('click', function() {
+  sideNav.classList.toggle('open');
+});
+```
+
+hen the button is clicked, the side navigation ill slide in or out depending on its current state.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scandinavian Interior Design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="sideNav" class="sidenav">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">X</a>
+    <a href="#">Home</a>
+    <a href="#">Philosophy</a>
+    <a href="#">Materials</a>
+    <a href="#">Inspiration</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <header>
+    <span class="open-btn" onclick="openNav()">☰ Menu</span>
+    <h1>Scandinavian Interior Design</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Calm, Functional, Beautiful</h2>
+      <p>
+        Scandinavian design is about more than looks — it’s about balance,
+        comfort, and harmony. Spaces are uncluttered, airy, and filled with
+        light, making homes feel both inviting and practical.
+      </p>
+    </section>
+
+    <section>
+      <h2>Natural Materials</h2>
+      <p>
+        Wood, stone, wool, and linen are at the heart of Scandinavian interiors.
+        These natural elements bring warmth and a sense of connection to nature,
+        while ensuring that every item is purposeful and timeless.
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Side navigation */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:#f5f2eb;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #444;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidenav a:hover {
+  background-color:#d9b382;
+  color: #000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #999;
+}
+
+.close-btn:hover {
+  color: #d9b382;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+  background-color:#9bb78d;
+}
+
+.open-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+/* Main content */
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 500;
+  color: #9bb78d;
+}
+
+p {
+  margin: 12px 0;
+  color: #444;
+}
+```
+
+##### JavaScript:
+
+```js
+function closeNav() {
+  document.getElementById("sideNav").style.width = "0";
+}
+
+function openNav() {
+  const sideNav = document.getElementById("sideNav");
+
+  sideNav.style.width = "250px";
+}
+```
+
+##### Result:
+
+![Collapsible Side Navigation](Assets/Videos/chrome_VZPapggKmJ.gif)
