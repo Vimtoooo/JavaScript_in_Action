@@ -2493,3 +2493,146 @@ button.addEventListener("click", function () {
 ##### Result:
 
 ![Dark/Light Themes](Assets/Videos/vXbJMz09G9.gif)
+
+### Save Theme Choice:
+
+When users switch between light and dark themes, we want the website to **remember their choice**.
+For this, we use `localStorage` in JavaScript. It stores data in the browser, and this data stays even after the page is refreshed or the browser is closed.
+
+#### Basic Syntax:
+
+HTML:
+
+```html
+<button id="themeToggle">Toggle Theme</button>
+```
+
+CSS:
+
+```css
+body.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+```
+
+JAVASCRIPT:
+
+```js
+const button = document.getElementById("themeToggle");
+
+// Apply saved theme on page load
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+}
+
+button.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+
+  // Save preference
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
+```
+
+##### Breakdown:
+
+The JavaScript code checks if the user previously saved a dark theme in `localStorage` and applies it when the page loads.
+
+When the button is clicked, it toggles dark mode on the page, and then updates `localStorage` so the preference is remembered for the next visit.
+
+1. When the user toggles the theme, save the current theme into `localStorage`.
+
+2. When the page loads, check `localStorage` and apply the saved theme automatically.
+
+This ensures the user's preference is maintained across visits to your site.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theme Preference Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="themeToggle">Toggle Theme</button>
+
+  <h1>Saving Theme Preference</h1>
+  <p>
+    Try switching between light and dark mode using the button above.
+    Refresh the page — your choice is remembered thanks to <strong>localStorage</strong>.
+  </p>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      transition: background 0.3s, color 0.3s;
+      background: #fdfdfd;
+      color: #222;
+    }
+
+body.dark-mode {
+      background: #222;
+      color: #fdfdfd;
+    }
+
+#themeToggle {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #444;
+      color: white;
+      font-size: 16px;
+    }
+
+body.dark-mode #themeToggle {
+      background: #eee;
+      color: #222;
+    }
+
+h1 {
+      margin-top: 40px;
+    }
+```
+
+##### JavaScript:
+
+```js
+const button = document.getElementById("themeToggle");
+
+// Apply saved theme on page load
+if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark-mode");
+
+button.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    // Save preference
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+});
+```
+
+##### Result:
+
+![Save Theme Choice](Assets/Videos/chrome_YLKpiwjdQh.gif)
