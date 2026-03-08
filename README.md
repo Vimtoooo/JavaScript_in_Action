@@ -2288,3 +2288,208 @@ function toggleDropdown() {
 ##### Result:
 
 ![Dropdown Menus](Assets/Videos/chrome_hEK4iptcFt.gif)
+
+## Theming & Personalization:
+
+### Dark / Light Themes:
+
+Implementing a dark/light theme toggle is a common feature in modern websites. Let's learn how to create a simple theme switcher using JavaScript.
+
+#### Basic Syntax:
+
+Create a button so that we can easily alter from theme to theme:
+
+```html
+<button id="themeToggle">Theme Toggle</button>
+```
+
+Add basic CSS for our light and dark themes:
+
+```css
+<style>
+  :root {
+    --background-color: #ffffff;
+    --text-color: #333333;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dark-theme {
+    --background-color: #222222;
+    --text-color: #f5f5f5;
+  }
+</style>
+```
+
+And lastly, apply JavaScript to toggle between themes:
+
+```js
+
+const themeToggle = document.getElementById('themeToggle');
+  
+themeToggle.addEventListener('click', function() {
+  document.body.classList.toggle('dark-theme');
+});
+```
+
+So when you click the button, it toggles the 'dark-theme' class on the body element!
+
+#### Example of Usage:
+
+##### HTML:
+
+```htm
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dark/light themes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Hygge ✨</h1>
+    <button id="themeToggle" class="toggle-btn">Toggle Theme</button>
+  </header>
+
+  <main>
+    <section class="intro">
+      <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1350&q=80" alt="Cozy hygge scene" class="hero-img">
+      <p>
+        <strong>Hygge</strong> is a Danish concept that embodies coziness, comfort, and a sense of well-being.  
+        It’s about enjoying life’s simple pleasures — candles, warm drinks, good company, and soft blankets.
+      </p>
+    </section>
+
+    <section class="philosophy">
+      <h2>The Philosophy</h2>
+      <p>
+        Hygge is less about things and more about atmosphere and feelings.  
+        It’s creating moments of calm, warmth, and togetherness — a way to nurture happiness in everyday life.
+      </p>
+    </section>
+
+    <section class="origin">
+      <h2>Where It Comes From</h2>
+      <p>
+        Originating from Denmark, hygge reflects the Danish culture’s deep appreciation for balance, comfort,  
+        and community. It’s often credited as one of the reasons why Denmark consistently ranks among the  
+        happiest countries in the world.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>☕ Embrace hygge in your daily life.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html
+```
+
+##### CSS:
+
+```css
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --accent-color: #c97c5d;
+  --card-bg: #fff;
+}
+
+.dark-mode {
+  --bg-color: rgba(34, 34, 34);
+  --text-color: #f0f0f0;
+  --accent-color: #e07a5f;
+  --card-bg: #2a2a2a;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--accent-color);
+  color: white;
+}
+
+h1 {
+  margin: 0;
+}
+
+.toggle-btn {
+  background: white;
+  color: var(--accent-color);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #f0f0f0;
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+section {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: background 0.3s ease;
+}
+
+h2 {
+  color: var(--accent-color);
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: var(--accent-color);
+  color: white;
+  margin-top: 30px;
+}
+```
+
+##### JavaScript:
+
+```js
+const button = document.getElementById("themeToggle");
+
+button.addEventListener("click", function () {
+  // Toggle dark mode on body
+  document.body.classList.toggle("dark-mode");
+});
+```
+
+##### Result:
+
+![Dark/Light Themes](Assets/Videos/vXbJMz09G9.gif)
