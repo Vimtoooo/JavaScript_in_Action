@@ -2076,3 +2076,215 @@ function openNav() {
 ##### Result:
 
 ![Collapsible Side Navigation](Assets/Videos/chrome_VZPapggKmJ.gif)
+
+### Dropdown Menus:
+
+**Dropdown menus** are UI components that reveal additional options when triggered. They're commonly used in navigation to organize content without taking up too much space.
+
+#### Basic Syntax:
+
+Create the HTML structure for the dropdown:
+
+```html
+<div class="dropdown">
+  <button class="dropdown-toggle">Menu</button>
+  <div class="dropdown-menu">
+    <a href="#">Option 1</a>
+    <a href="#">Option 2</a>
+    <a href="#">Option 3</a>
+  </div>
+</div>
+```
+
+Apply CSS to hide/show the dropdown menu:
+
+```css
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+```
+
+And add JavaScript to toggle to dropdown visibility:
+
+```js
+// Get the dropdown toggle button
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+// Get the dropdown menu
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+// Add click event listener to the toggle button
+dropdownToggle.addEventListener('click', function() {
+  // Toggle the 'show' class on the dropdown menu
+  dropdownMenu.classList.toggle('show');
+});
+```
+
+When you click the "Menu" button, the dropdown menu will appear, clicking it again will hide the menu.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Save the Forests</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Save the Forests</h1>
+    <p>Even planting one or two trees makes a difference.</p>
+  </header>
+
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown()">Learn More ▼</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">Why forests matter</a>
+      <a href="#">How to grow a tree</a>
+      <a href="#">Community projects</a>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <h2>Why Trees Are Important</h2>
+      <p>
+        Forests clean our air, give us oxygen, and are home to countless animals.  
+        Each tree you plant helps fight climate change and supports life on Earth.
+      </p>
+    </section>
+    <section>
+      <h2> Start Small</h2>
+      <p>
+        Don’t wait for a big change. Start with just one or two trees in your yard or community.  
+        Your small action inspires others!
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p> Together we can make the planet greener.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0fdf4; /* light green background */
+  color: #2f4f2f;
+}
+
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
+
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  color: #1b5e20;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #e8f5e9;
+  margin-top: 30px;
+  font-style: italic;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
+
+.dropbtn {
+  background-color: #43a047;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: #388e3c;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #2f4f2f;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #e8f5e9;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+```
+
+##### JavaScript:
+
+```js
+function toggleDropdown() {
+  const dropToggle = document.querySelector(".dropbtn");
+  const dropMenu = document.getElementById("myDropdown");
+
+  dropToggle.addEventListener('click', function() {
+    dropMenu.classList.toggle('show');
+  });
+}
+```
+
+##### Result:
+
+![Dropdown Menus](Assets/Videos/chrome_hEK4iptcFt.gif)
