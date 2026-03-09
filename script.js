@@ -1,15 +1,14 @@
-const button = document.getElementById("themeToggle");
+function animateOnScroll() {
+  const elements = document.querySelectorAll('.fade-in');
+  
+  elements.forEach(element => {
+    const position = element.getBoundingClientRect();
+    
+    if (position.top < window.innerHeight - 50) element.classList.add("active");
+  });
+}
 
-// Apply saved theme on page load
-if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark-mode");
+window.addEventListener('scroll', animateOnScroll);
 
-button.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-
-    // Save preference
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-    } else {
-        localStorage.setItem("theme", "light");
-    }
-});
+// Run once on page load
+animateOnScroll();

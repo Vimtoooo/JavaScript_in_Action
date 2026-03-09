@@ -2773,4 +2773,185 @@ toggleBtn.addEventListener('click', function() {
 
 ##### Result:
 
-![CSS Transition](Assets/Videos/chrome_gY1y1nScqV.gif)
+![CSS Transitions](Assets/Videos/chrome_gY1y1nScqV.gif)
+
+### Animate Elements on Scroll:
+
+Sometimes we want elements to animate (fade in, slide in, zoom, etc.) **when they enter the viewport while scrolling**.
+This is often done by checking if the elements is visible on the screen, then adding a class that triggers a CSS animation or transition.
+
+#### Basic Syntax:
+
+Create a simple HTML element:
+
+```html
+<div class="animate-on-scroll">This element will animate when scrolled into view</div>
+```
+
+Next, add CSS for animation:
+
+```css
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+```
+
+Then, create a javaScript function to detect when elements scroll into view. Since we may have multiple elements, we loop through them with a `forEach()` loop and check each element's position relative to the viewport.
+
+```js
+function checkScroll() {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  
+  elements.forEach(element => {
+    // Get element position relative to viewport
+    const position = element.getBoundingClientRect();
+    
+    // If element is in viewport
+    if(position.top < window.innerHeight) {
+      element.classList.add('visible');
+    }
+  });
+}
+
+// Run on scroll
+window.addEventListener('scroll', checkScroll);
+
+// Run once on page load
+checkScroll();
+```
+
+When an elements with the class `animate-on-scroll` enters the viewport, the script adds the `visible` class, triggering the animation.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scroll Animation Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Discover the Beauty of Nature</h1>
+    <p>Scroll down to reveal the magic</p>
+  </header>
+
+  <div class="container">
+    <div class="fade-in card">
+      <h2>Mountains</h2>
+      <p>Standing tall and timeless, mountains remind us of strength and stability.</p>
+    </div>
+
+    <div class="fade-in card">
+      <h2>Forests</h2>
+      <p>Forests are the lungs of our planet, offering peace and endless green beauty.</p>
+    </div>
+
+    <div class="fade-in card">
+      <h2>Rivers</h2>
+      <p>Calm or powerful, rivers flow endlessly, connecting life along their paths.</p>
+    </div>
+
+    <div class="fade-in card">
+      <h2>Deserts</h2>
+      <p>Silent and vast, deserts teach us resilience and the value of every drop of water.</p>
+    </div>
+
+    <div class="fade-in card">
+      <h2>Oceans</h2>
+      <p>The oceans cover most of our Earth, a mysterious world full of wonder and life.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7fafc;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.container {
+  height: 2000px;
+  padding: 50px 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+```
+
+##### JavaScript:
+
+```js
+function animateOnScroll() {
+  const elements = document.querySelectorAll('.fade-in');
+  
+  elements.forEach(element => {
+    const position = element.getBoundingClientRect();
+    
+    if (position.top < window.innerHeight - 50) element.classList.add("active");
+  });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+
+// Run once on page load
+animateOnScroll();
+```
+
+##### Result:
+
+![Animate Elements on Scroll](Assets/Videos/chrome_ZgI6EcxPlP.gif)
