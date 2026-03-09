@@ -2955,3 +2955,150 @@ animateOnScroll();
 ##### Result:
 
 ![Animate Elements on Scroll](Assets/Videos/chrome_ZgI6EcxPlP.gif)
+
+### Button Click Animations:
+
+Giving instant feedback to the user when a button is interacted with (like shrinking, glowing, or bouncing), can help indicate that their request has or is being dealt with. We can trigger **CSS animations or transition** using JavaScript.
+
+#### Basic Syntax:
+
+Here is our button for this demonstration:
+
+```html
+<button id="animatedButton">Click Me</button>
+```
+
+Adding basic CSS styles for the button and a separate selector for the CSS animation effect to take place:
+
+```css
+#animatedButton {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.button-clicked {
+  transform: scale(0.95);
+  background-color: #45a049;
+}
+```
+
+And lastly, use JavaScript to create the click animation:
+
+```js
+const button = document.getElementById('animatedButton');
+
+button.addEventListener('click', function() {
+  // Add a class for the click effect
+  button.classList.add('button-clicked');
+  
+  // Remove the class after animation completes
+  setTimeout(function() {
+    button.classList.remove('button-clicked');
+  }, 200);
+});
+```
+
+When clicked, the button will now slightly shrink and change color, providing visual feedback to the user.
+
+#### Example of Usage:
+
+##### HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Animation Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Interactive Button Demo</h1>
+    <p>Click the button below to see a smooth animation effect.</p>
+  </header>
+
+  <main class="content">
+    <button id="animatedButton" class="btn">Click Me</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+/* General page styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+  color: #333;
+}
+
+header {
+  padding: 40px 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  color: #2c3e50;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Button styles */
+.btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #3cb371;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #34a067;
+}
+
+/* Click animation class */
+.button-clicked {
+  transform: scale(0.9);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+```
+
+##### JavaScript:
+
+```js
+const button = document.getElementById('animatedButton');
+
+button.addEventListener('click', function() {
+  // Add a class for the click effect
+  button.classList.add("button-clicked");
+  
+  // Remove the class after animation completes
+  setTimeout(function() {
+    button.classList.remove('button-clicked');
+  }, 600);
+});
+```
+
+##### Result:
+
+![Button Click Animations](Assets/Videos/chrome_cXd3CwFQpZ.gif)
