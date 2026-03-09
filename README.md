@@ -2636,3 +2636,141 @@ button.addEventListener("click", function () {
 ##### Result:
 
 ![Save Theme Choice](Assets/Videos/chrome_YLKpiwjdQh.gif)
+
+## Animations & Effects:
+
+### CSS Transitions:
+
+Sometimes we want to create smooth animations (like fading, sliding, or resizing) when an element appears or disappears. We use CSS transitions fo that (covered in the CSS mastery repository). In JavaScript, we simple add or remove a class - or modify style properties.
+
+#### Basic Syntax:
+
+HTML:
+
+```html
+<button id="toggleBtn">Toggle Box</button>
+<div id="box" class="box"></div>
+```
+
+CSS:
+
+```css
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: teal;
+  transition: opacity 0.5s ease; /* for class toggle */
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+```
+
+The `.box` selector has a transition on its opacity, so when the `.hidden` class is added (which sets opacity to 0), the box fades out instead of disappearing instantly.
+
+JAVASCRIPT:
+
+```js
+const button = document.getElementById("toggleBtn");
+const box = document.getElementById("box");
+
+button.addEventListener("click", function () {
+  // opacity fades
+  box.classList.toggle("hidden");
+});
+```
+
+When the button is clicked - the box fades.
+
+#### Example of Usage:
+
+##### HTML:
+
+``html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fade Toggle Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Smooth Fade Example</h1>
+    <p>Click the button below to toggle the fading box.</p>
+    <button id="toggleBtn">Toggle Box</button>
+
+    <div id="fadeBox" class="box">
+      <p>This box fades in and out smoothly!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+##### CSS:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: teal;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #006d6d;
+}
+
+.box {
+  width: 250px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: teal;
+  color: white;
+  border-radius: 8px;
+  transition: opacity 0.9s ease;
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+```
+
+##### JavaScript:
+
+```js
+const toggleBtn = document.getElementById("toggleBtn");
+const fadeBox = document.getElementById("fadeBox");
+
+toggleBtn.addEventListener('click', function() {
+  fadeBox.classList.toggle("hidden");
+});
+```
+
+##### Result:
+
+![CSS Transition](Assets/Videos/chrome_gY1y1nScqV.gif)
