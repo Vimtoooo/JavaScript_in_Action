@@ -34,6 +34,7 @@ header h1 {
   background: #1f2833;
   overflow-x: hidden;
   padding-top: 60px;
+  transition: width 0.5s;
   z-index: 1000;
 }
 
